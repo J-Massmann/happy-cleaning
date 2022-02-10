@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Character from './Character.js';
+import styled from 'styled-components/macro';
 
 export default function Flatmates() {
   const [hasError, setHasError] = useState(false);
@@ -20,11 +21,16 @@ export default function Flatmates() {
   }
 
   return (
-    <div>
+    <CharacterContainer>
       <p>{hasError && 'Error: could not load characters'}</p>
       {characters.map(({ name, species, image, id }) => (
         <Character key={id} name={name} species={species} image={image} />
       ))}
-    </div>
+    </CharacterContainer>
   );
 }
+
+const CharacterContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
