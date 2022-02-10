@@ -2,6 +2,7 @@ import './App.css';
 import Room from './Room.js';
 import Header from './Header.js';
 import { useImmer } from 'use-immer';
+import Flatmates from './Flatmates.js';
 
 export default function App() {
   const [rooms, updateRooms] = useImmer([
@@ -39,6 +40,7 @@ export default function App() {
           }}
         />
       ))}
+      <Flatmates />
     </main>
   );
 }
