@@ -14,7 +14,7 @@ export default function Room({
       <header className="RoomHeader">
         {text} <div className={statusClassName}></div>
       </header>
-      {isDescriptionVisible && <p>{description}</p>}
+      <p hidden={!isDescriptionVisible}> {description}</p>
     </section>
   );
 }
