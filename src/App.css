@@ -1,5 +1,5 @@
 .App {
   display: grid;
-  grid-template-rows: auto 1fr 48px;
+  grid-template-rows: auto auto auto 48px;
   gap: 20px;
 }

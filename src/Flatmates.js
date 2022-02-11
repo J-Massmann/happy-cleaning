@@ -33,4 +33,9 @@ export default function Flatmates() {
 const CharacterContainer = styled.div`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+
+  p {
+    flex: 0 0 100%;
+  }
 `;

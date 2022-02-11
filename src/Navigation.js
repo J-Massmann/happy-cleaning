@@ -1,10 +1,28 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import './Navigation.css';
 
-export default function Navigation() {
+export default function Navigation(currentPage, setcurrentPage) {
   return (
     <NavigationBar>
-      <button>Rooms</button>
-      <button>Flatmates</button>
+      <button
+        onClick={() => {
+          setcurrentPage('Rooms');
+        }}
+        sytling="Rooms"
+        currentPage={currentPage}
+      >
+        Rooms
+      </button>
+      <button
+        onClick={() => {
+          setcurrentPage('Flatmates');
+        }}
+        sytling="Flatmates"
+        currentPage={currentPage}
+      >
+        Flatmates
+      </button>
     </NavigationBar>
   );
 }
@@ -17,5 +35,7 @@ const NavigationBar = styled.nav`
   button {
     width: 50%;
     border: 1px black solid;
+    background-color: ${props =>
+      props.sytling === props.currentPage ? 'gray' : 'lightgray'};
   }
 `;

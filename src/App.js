@@ -28,14 +28,17 @@ export default function App() {
     ]
   );
 
+  const [currentPage, setcurrentPage] = useState('Rooms');
+  function togglePages() {}
+
   useEffect(() => {
     saveToLocal('rooms', rooms);
   }, [rooms]);
 
   return (
     <div className="App">
+      <Header>{currentPage}</Header>
       <main>
-        <Header>Happy Cleaning!</Header>
         {rooms.map(({ text, description, isClean }, index) => (
           <Room
             key={text}
@@ -53,7 +56,6 @@ export default function App() {
         ))}
       </main>
       <main>
-        <Header>Flatmates:</Header>
         <Flatmates />
       </main>
       <Navigation />
