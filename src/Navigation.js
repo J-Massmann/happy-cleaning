@@ -2,10 +2,10 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import './Navigation.css';
 
-export default function Navigation(currentPage, setcurrentPage) {
+export default function Navigation({ currentPage, setcurrentPage }) {
   return (
     <NavigationBar>
-      <button
+      <NavigationButton
         onClick={() => {
           setcurrentPage('Rooms');
         }}
@@ -13,8 +13,8 @@ export default function Navigation(currentPage, setcurrentPage) {
         currentPage={currentPage}
       >
         Rooms
-      </button>
-      <button
+      </NavigationButton>
+      <NavigationButton
         onClick={() => {
           setcurrentPage('Flatmates');
         }}
@@ -22,7 +22,7 @@ export default function Navigation(currentPage, setcurrentPage) {
         currentPage={currentPage}
       >
         Flatmates
-      </button>
+      </NavigationButton>
     </NavigationBar>
   );
 }
@@ -31,11 +31,14 @@ const NavigationBar = styled.nav`
   display: flex;
   justify-content: center;
   width: 100%;
+  position: fixed;
+  bottom: 0;
+`;
 
-  button {
-    width: 50%;
-    border: 1px black solid;
-    background-color: ${props =>
-      props.sytling === props.currentPage ? 'gray' : 'lightgray'};
-  }
+const NavigationButton = styled.button`
+  width: 50%;
+  border: 1px black solid;
+  padding: 20px 0 20px 0;
+  background-color: ${props =>
+    props.sytling === props.currentPage ? 'gray' : 'lightgray'};
 `;

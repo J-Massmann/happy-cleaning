@@ -1,5 +1,9 @@
 .App {
   display: grid;
-  grid-template-rows: auto auto auto 48px;
+  grid-template-rows: auto 100vh auto;
   gap: 20px;
+}
+
+.hidden {
+  display: none;
 }

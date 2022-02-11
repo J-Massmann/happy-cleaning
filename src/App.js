@@ -29,7 +29,18 @@ export default function App() {
   );
 
   const [currentPage, setcurrentPage] = useState('Rooms');
-  function togglePages() {}
+  const isRoomsHidden = currentPage === 'Rooms' ? '' : 'hidden';
+  const isFlatmatesHidden = currentPage === 'Flatmates' ? '' : 'hidden';
+
+  // if (currentPage === 'Rooms') {
+  //   setIsRoomsHidden(false);
+  //   setIsFlatmatesHidden(true);
+  // } else if (currentPage === 'Flatmates') {
+  //   setIsRoomsHidden(true);
+  //   setIsFlatmatesHidden(false);
+  // }
+
+  console.log(currentPage);
 
   useEffect(() => {
     saveToLocal('rooms', rooms);
@@ -38,7 +49,7 @@ export default function App() {
   return (
     <div className="App">
       <Header>{currentPage}</Header>
-      <main>
+      <main className={isRoomsHidden}>
         {rooms.map(({ text, description, isClean }, index) => (
           <Room
             key={text}
@@ -55,10 +66,10 @@ export default function App() {
           />
         ))}
       </main>
-      <main>
+      <main className={isFlatmatesHidden}>
         <Flatmates />
       </main>
-      <Navigation />
+      <Navigation currentPage={currentPage} setcurrentPage={setcurrentPage} />
     </div>
   );
 }
