@@ -29,15 +29,19 @@ export default function App() {
   );
 
   const [currentPage, setcurrentPage] = useState('Rooms');
+  // const [isRoomsHidden, setIsRoomsHidden] = useState(false);
+  // const [isFlatmatesHidden, setIsFlatmatesHidden] = useState(true);
   const isRoomsHidden = currentPage === 'Rooms' ? '' : 'hidden';
   const isFlatmatesHidden = currentPage === 'Flatmates' ? '' : 'hidden';
 
-  // if (currentPage === 'Rooms') {
-  //   setIsRoomsHidden(false);
-  //   setIsFlatmatesHidden(true);
-  // } else if (currentPage === 'Flatmates') {
-  //   setIsRoomsHidden(true);
-  //   setIsFlatmatesHidden(false);
+  // function toggleRooms() {
+  //   if (currentPage === 'Rooms') {
+  //     setIsRoomsHidden(false);
+  //     setIsFlatmatesHidden(true);
+  //   } else if (currentPage === 'Flatmates') {
+  //     setIsRoomsHidden(true);
+  //     setIsFlatmatesHidden(false);
+  //   }
   // }
 
   console.log(currentPage);
@@ -49,7 +53,7 @@ export default function App() {
   return (
     <div className="App">
       <Header>{currentPage}</Header>
-      <main className={isRoomsHidden}>
+      <main hidden={isRoomsHidden}>
         {rooms.map(({ text, description, isClean }, index) => (
           <Room
             key={text}
@@ -66,7 +70,7 @@ export default function App() {
           />
         ))}
       </main>
-      <main className={isFlatmatesHidden}>
+      <main hidden={isFlatmatesHidden}>
         <Flatmates />
       </main>
       <Navigation currentPage={currentPage} setcurrentPage={setcurrentPage} />

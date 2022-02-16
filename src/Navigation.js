@@ -2,12 +2,17 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import './Navigation.css';
 
-export default function Navigation({ currentPage, setcurrentPage }) {
+export default function Navigation({
+  currentPage,
+  setcurrentPage,
+  toggleRooms,
+}) {
   return (
     <NavigationBar>
       <NavigationButton
         onClick={() => {
           setcurrentPage('Rooms');
+          toggleRooms();
         }}
         sytling="Rooms"
         currentPage={currentPage}
@@ -17,6 +22,7 @@ export default function Navigation({ currentPage, setcurrentPage }) {
       <NavigationButton
         onClick={() => {
           setcurrentPage('Flatmates');
+          toggleRooms();
         }}
         sytling="Flatmates"
         currentPage={currentPage}
